@@ -15,9 +15,14 @@ var musicNotesImg;
 var sidewalkImg;
 var flyingBoyImg;
 var rainbowImg;
+var rightBuildingImg;
+var midBuildingImg;
+var leftBuildingImg;
 
 var largeCloudX = -100;
 var smallCloudX = 600;
+
+var currentScene = "dream";
 
 //preload images:
 
@@ -31,6 +36,9 @@ function preload() {
 	sidewalkImg = loadImage("images/sidewalk.png");
 	flyingBoyImg = loadImage("images/flyingboy.png");
 	rainbowImg = loadImage("images/rainbow.png");
+	rightBuildingImg = loadImage("images/rightbuilding.png");
+	midBuildingImg = loadImage("images/midbuilding.png");
+	leftBuildingImg = loadImage("images/leftbuilding.png");
 
 
 }
@@ -40,46 +48,46 @@ function setup() {
 }
 
 function draw() {
+	// if (currentScene === "life")
 	image(backgroundImg, 0, 0);
 
 	//cloud movement
 	//took cloud movement from class notes sketch
-	largeCloudX += 0.8;
+	largeCloudX += 0.5;
 	if (largeCloudX > 800) {
 		largeCloudX = -200;
 	}
-	image(cloudImg, largeCloudX, 100);
+	image(cloudImg, largeCloudX, -400);
 
-	smallCloudX += 0.5;
+	smallCloudX += 0.8;
 	if (smallCloudX > 800) {
 		smallCloudX = -200;
 	}
-	image(cloud2Img, smallCloudX, 50);
+	image(cloud2Img, smallCloudX, 0);
 
-	image(sidewalkImg, 0, 200);
+	image(rightBuildingImg, 600, 330);
+	image(midBuildingImg, -180, 80);
+	image(leftBuildingImg, -80, 270);
 	image(boyHandsDownImg, 400, 371);
 
 	//user clicks mouse, music and dreams are made:
 
 	if (mouseIsPressed) {
-		largeCloudX += 0.8;
-		if (largeCloudX > 800) {
-			largeCloudX = -200;
-		}
-		image(cloudImg, largeCloudX, 100);
 
-		smallCloudX += 0.5;
-		if (smallCloudX > 800) {
-			smallCloudX = -200;
-		}
-
-		//image(backgroundImg, 0, 0);
-		image(sidewalkImg, 0, 200);
+		// if (currentScene === "dream") {
 		image(rainbowImg, 0, 70);
 		image(musicNotesImg, 100, 100);
 		image(flyingBoyImg, mouseX - 130, mouseY - 130);
 
 	}
+	//
+	// function mouseClicked() {
+	// 	if (currentScene === "dream") {
+	// 		currentScene = "life";
+	// 	} else {
+	// 		currentScene = "dream";
+	// 	}
+	// }
 
 
 	//console.log(mouseX, mouseY);
