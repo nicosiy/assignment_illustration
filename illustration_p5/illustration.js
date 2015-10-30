@@ -18,6 +18,12 @@ var rainbowImg;
 var rightBuildingImg;
 var midBuildingImg;
 var leftBuildingImg;
+var note1Img;
+var note2Img;
+var note3Img;
+var note4Img;
+var note5Img;
+var note6Img;
 
 var largeCloudX = -100;
 var smallCloudX = 600;
@@ -39,7 +45,12 @@ function preload() {
 	rightBuildingImg = loadImage("images/rightbuilding.png");
 	midBuildingImg = loadImage("images/midbuilding.png");
 	leftBuildingImg = loadImage("images/leftbuilding.png");
-
+	note1Img = loadImage("images/note1.png");
+	note2Img = loadImage("images/note2.png");
+	note3Img = loadImage("images/note3.png");
+	note4Img = loadImage("images/note4.png");
+	note5Img = loadImage("images/note5.png");
+	note6Img = loadImage("images/note6.png");
 
 }
 
@@ -76,7 +87,22 @@ function draw() {
 
 		// if (currentScene === "dream") {
 		image(rainbowImg, 0, 70);
-		image(musicNotesImg, 100, 100);
+		//music notes shaking:
+		var a = random(120, 110);
+		image(note1Img, 100, a)
+		var b = random(210, 220);
+		image(note2Img, 200, b);
+		var c = random(220, 230);
+		image(note3Img, 450, c);
+		var d = random(120, 110);
+		image(note4Img, 550, d);
+		var e = random(215, 225);
+		image(note5Img, 650, e);
+		var f = random(215, 225);
+		image(note6Img, 50, f);
+
+
+
 		image(flyingBoyImg, mouseX - 130, mouseY - 130);
 
 	}
