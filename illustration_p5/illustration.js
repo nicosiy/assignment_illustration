@@ -28,7 +28,6 @@ var note6Img;
 var largeCloudX = -100;
 var smallCloudX = 600;
 
-var currentScene = "dream";
 
 //preload images:
 
@@ -54,13 +53,15 @@ function preload() {
 
 }
 
+var currentScene = "life";
+
 function setup() {
 	createCanvas(800, 600);
 }
 
 function draw() {
-	// if (currentScene === "life")
-	image(backgroundImg, 0, 0);
+	if (currentScene === "life")
+		image(backgroundImg, 0, 0);
 
 	//cloud movement
 	//took cloud movement from class notes sketch
@@ -83,9 +84,12 @@ function draw() {
 
 	//user clicks mouse, music and dreams are made:
 
-	if (mouseIsPressed) {
+	if (mouseReleased &&
+		mouseX > 430 &&
+		mouseX < 495 &&
+		mouseY > 390 &&
+		mouseY < 570) {
 
-		// if (currentScene === "dream") {
 		image(rainbowImg, 0, 70);
 		//music notes shaking:
 		var a = random(120, 110);
@@ -105,17 +109,17 @@ function draw() {
 
 		image(flyingBoyImg, mouseX - 130, mouseY - 130);
 
+		function mouseReleased() {
+			if (currentScene === "life") {
+				currentScene = "dream";
+			} else {
+				currentScene = "life";
+			}
+		}
+
 	}
-	//
-	// function mouseClicked() {
-	// 	if (currentScene === "dream") {
-	// 		currentScene = "life";
-	// 	} else {
-	// 		currentScene = "dream";
-	// 	}
-	// }
 
-
+	//y 390, 570. x, 430, 495
 	//console.log(mouseX, mouseY);
 
 }
